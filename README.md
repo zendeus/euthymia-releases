@@ -3,12 +3,16 @@
 This public repository hosts downloadable Euthymia binaries. The application
 source remains private in `zendeus/euthymia`.
 
-There is no production release yet. The first candidate is a Wayland Linux
-x86-64 portable archive. Each published candidate will include a `.tar.zst`
-archive, a `.sha256` checksum, and a JSON manifest with the version, source
-revision, architecture, and archive hash. ARM and X11 builds are not currently
-available. NixOS uses a native Nix package; a public binary-based Nix
-installation route is planned.
+Linux Wayland packages are available for x86-64 and ARM64 as AppImage, `.deb`,
+`.rpm`, and `.tar.zst` files, with matching SHA-256 checksums and per-architecture
+JSON manifests.
+
+New releases publish an aggregate `release.json` alongside their downloadable
+assets. It records the release tag, source revision, prerelease status, and
+version-specific URLs and SHA-256 hashes for every architecture and format.
+Release metadata lives in release assets; CI does not commit update pointers
+to this repository. Earlier previews through rc.3 have per-architecture
+manifests only.
 
 The website can read the [latest stable release API](https://api.github.com/repos/zendeus/euthymia-releases/releases/latest)
 and use each asset's `browser_download_url` for direct GitHub downloads.
